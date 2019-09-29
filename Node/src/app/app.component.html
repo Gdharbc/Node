@@ -1,0 +1,40 @@
+<table *ngIf="firstView">
+  <th>EmpId</th>
+  <th>Name</th>
+  <th>Code</th>
+  <th>Salary</th>
+  <tbody>
+    <tr *ngFor="let course of employees">
+      <td>{{course.EmpID}}</td>
+      <td>{{course.Name}}</td>
+      <td>{{course.EmpCode}}</td>
+      <td>{{course.Salary}}</td>
+      <a (click)="deleteCourse(course.EmpID)">Delete</a>
+    </tr>
+  </tbody>
+</table>
+
+<table *ngIf="dataView">
+  <th>EmpId</th>
+  <th>Name</th>
+  <th>Code</th>
+  <th>Salary</th>
+  <tbody>
+    <tr *ngFor="let course of employees">
+      <td>{{course.EmpID}}</td>
+      <td>{{course.Name}}</td>
+      <td>{{course.EmpCode}}</td>
+      <td>{{course.Salary}}</td>
+      <a (click)="deleteCourse(course.EmpID)">Delete</a>
+    </tr>
+  </tbody>
+</table>
+
+<form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)">
+<p style="display:none"><label>Name</label><input type="text"  formControlName = "EmpID"> </p>
+<p><label>Name</label><input type="text"  formControlName = "Name"> </p>
+<p><label>EmpCode</label><input type="text"  formControlName = "EmpCode"> </p>
+<p><label>Salary</label><input type="text"  formControlName = "Salary"> </p>
+
+<button>Click</button>
+</form>
